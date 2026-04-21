@@ -4,25 +4,55 @@
   
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gitflow Demo Page</title>
+  <title>Follow Me Demo</title>
 
   
   <style>
+    /* Body styles affect the whole page */
     body {
       font-family: system-ui, sans-serif;
       padding: 2rem;
     }
+
+    /* This makes the heading cyan blue */
     h1 {
-      color: #2563eb;
+      color: #0ea5e9;
     }
-    p {
-      opacity: 0.85;
+
+    /* Button styling */
+    button {
+      padding: 10px 16px;        /* Space inside the button */
+      border: none;              /* No border line */
+      border-radius: 8px;        /* Rounded corners */
+      background: #0ea5e9;       /* Blue background */
+      color: white;              /* White text */
+      font-size: 1rem;           /* Normal text size */
+      cursor: pointer;           /* Shows hand when hovering */
+    }
+
+    /* Button changes color when you hover over it */
+    button:hover {
+      background: #0369a1;
     }
   </style>
 </head>
 <body>
   
-  <h1>Hello, Gitflow!</h1>
-  <p>This is our starter page for practicing commits and pushes.</p>
+  <h1>Welcome to the Follow Me Demo</h1>
+  <p>Click the button to reveal a fun message.</p>
+
+  
+  <button id="revealBtn">Click Me</button>
+
+  
+  <p id="message" hidden>Hello World! yoo this is mistermonke and im trying to learn how to code</p>
+
+  
+  <script>
+    // When the button is clicked, show the hidden message
+    document.getElementById('revealBtn').addEventListener('click', () => {
+      document.getElementById('message').hidden = false;
+    });
+  </script>
 </body>
 </html>
