@@ -1,111 +1,262 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Git Demo App</title>
-  <style>
-    /* Basic page styling */
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-    }
+  <head>
+    <meta charset="utf-8" />
+    <title>Git Demo App</title>
+    <style>
+      /* Basic page styling */
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+      }
 
-    /* Card styling */
-    .card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
+      /* Card styling */
+      .card {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
 
-    /* Button styling */
-    button {
-      background: #4f46e5;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-right: 10px;
-    }
+      /* Button styling */
+      button {
+        background: #4f46e5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
 
-    button:hover {
-      background: #4338ca;
-    }
+      button:hover {
+        background: #4338ca;
+      }
 
-    /* Output text */
-    .output {
-      margin-top: 15px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Git Demo App</h1>
+      input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
 
-<div class="card">
-    <h2>Joke Button</h2>
-    <p>Click the button to see a random joke!</p>
-    <button id="jokeBtn">Tell me a joke</button>
-    <button id="jokeClear">Clear</button>
-    <div id="jokeOutput" class="output"></div>
-</div>
+      /* Output text */
+      .output {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Git Demo App</h1>
 
-<div class="card">
-    <h2>Click Counter</h2>
-    <p>How many times can you click?</p>
-    <button id="countBtn">Click me!</button>
-    <button id="countReset">Reset</button>
-    <div id="countOutput" class="output">Clicks: 0</div>
-</div>
+    <div class="card">
+      <h2>Joke Button</h2>
+      <p>Click the button to see a random joke!</p>
+      <button id="jokeBtn">Tell me a joke</button>
+      <button id="jokeClear">Clear</button>
+      <div id="jokeOutput" class="output"></div>
+    </div>
 
-  <script>
-    // List of jokes
-    var jokes = [
-      "Why did the student eat his homework? Because the teacher said it was a piece of cake!",
-      "What do you call a boomerang that won't come back? A stick!",
-      "Why don't scientists trust atoms? Because they make up everything!"
-    ];
-  
-    // Get the button and output area
-    var jokeBtn = document.getElementById('jokeBtn');
-    var jokeOutput = document.getElementById('jokeOutput');
-    var jokeClear = document.getElementById('jokeClear');
-  
-    // When joke button is clicked, show a random joke
-    jokeBtn.onclick = function() {
-      var randomNumber = Math.floor(Math.random() * jokes.length);
-      jokeOutput.textContent = jokes[randomNumber];
-    };
-  
-    // When clear button is clicked, clear the joke
-    jokeClear.onclick = function() {
-      jokeOutput.textContent = '';
-    };
+    <div class="card">
+      <h2>Click Counter</h2>
+      <p>How many times can you click?</p>
+      <button id="countBtn">Click me!</button>
+      <button id="countReset">Reset</button>
+      <div id="countOutput" class="output">Clicks: 0</div>
+    </div>
 
-    // Click counter
-var clicks = 0;
-var countBtn = document.getElementById('countBtn');
-var countOutput = document.getElementById('countOutput');
-var countReset = document.getElementById('countReset');
+    <div class="card">
+      <h2>Name Greeter</h2>
+      <p>Type your name and get a greeting.</p>
+      <input id="nameInput" type="text" placeholder="Enter your name" />
+      <button id="greetBtn">Greet me</button>
+      <div id="greetOutput" class="output"></div>
+    </div>
 
-// When count button is clicked, add 1
-countBtn.onclick = function() {
-  clicks = clicks + 1;
-  countOutput.textContent = 'Clicks: ' + clicks;
-};
+    <div class="card">
+      <h2>Compliment Generator</h2>
+      <p>Get a random compliment.</p>
+      <button id="complimentBtn">Give me a compliment</button>
+      <div id="complimentOutput" class="output"></div>
+    </div>
 
-// When reset is clicked, go back to 0
-countReset.onclick = function() {
-  clicks = 0;
-  countOutput.textContent = 'Clicks: 0';
-};
+    <div class="card">
+      <h2>Dice Roller</h2>
+      <p>Roll a six-sided dice.</p>
+      <button id="diceBtn">Roll dice</button>
+      <div id="diceOutput" class="output">Roll result: -</div>
+    </div>
 
-  </script>
+    <div class="card">
+      <h2>Magic 8 Ball</h2>
+      <p>Ask your question, then click for an answer.</p>
+      <button id="magicBtn">Ask the 8 Ball</button>
+      <div id="magicOutput" class="output"></div>
+    </div>
 
-</body>
+    <div class="card">
+      <h2>Timer / Stopwatch</h2>
+      <p>Start, stop, and reset the timer.</p>
+      <button id="startTimer">Start</button>
+      <button id="stopTimer">Stop</button>
+      <button id="resetTimer">Reset</button>
+      <div id="timerOutput" class="output">00:00.0</div>
+    </div>
+
+    <script>
+      // List of jokes
+      var jokes = [
+        "Why did the student eat his homework? Because the teacher said it was a piece of cake!",
+        "What do you call a boomerang that won't come back? A stick!",
+        "Why don't scientists trust atoms? Because they make up everything!",
+      ];
+
+      // Get the button and output area
+      var jokeBtn = document.getElementById("jokeBtn");
+      var jokeOutput = document.getElementById("jokeOutput");
+      var jokeClear = document.getElementById("jokeClear");
+
+      // When joke button is clicked, show a random joke
+      jokeBtn.onclick = function () {
+        var randomNumber = Math.floor(Math.random() * jokes.length);
+        jokeOutput.textContent = jokes[randomNumber];
+      };
+
+      // When clear button is clicked, clear the joke
+      jokeClear.onclick = function () {
+        jokeOutput.textContent = "";
+      };
+
+      // Click counter
+      var clicks = 0;
+      var countBtn = document.getElementById("countBtn");
+      var countOutput = document.getElementById("countOutput");
+      var countReset = document.getElementById("countReset");
+
+      // When count button is clicked, add 1
+      countBtn.onclick = function () {
+        clicks = clicks + 1;
+        countOutput.textContent = "Clicks: " + clicks;
+      };
+
+      // When reset is clicked, go back to 0
+      countReset.onclick = function () {
+        clicks = 0;
+        countOutput.textContent = "Clicks: 0";
+      };
+
+      // Name greeter
+      var nameInput = document.getElementById("nameInput");
+      var greetBtn = document.getElementById("greetBtn");
+      var greetOutput = document.getElementById("greetOutput");
+
+      greetBtn.onclick = function () {
+        var name = nameInput.value.trim();
+        if (name === "") {
+          greetOutput.textContent = "Please type your name first.";
+          return;
+        }
+        greetOutput.textContent = "Hello, " + name + "! Great to see you.";
+      };
+
+      // Compliment generator
+      var compliments = [
+        "You are doing an amazing job learning code!",
+        "Your creativity makes your projects stand out.",
+        "You have great problem-solving skills.",
+        "You are getting better every day.",
+      ];
+      var complimentBtn = document.getElementById("complimentBtn");
+      var complimentOutput = document.getElementById("complimentOutput");
+
+      complimentBtn.onclick = function () {
+        var randomIndex = Math.floor(Math.random() * compliments.length);
+        complimentOutput.textContent = compliments[randomIndex];
+      };
+
+      // Dice roller
+      var diceBtn = document.getElementById("diceBtn");
+      var diceOutput = document.getElementById("diceOutput");
+
+      diceBtn.onclick = function () {
+        var roll = Math.floor(Math.random() * 6) + 1;
+        diceOutput.textContent = "Roll result: " + roll;
+      };
+
+      // Magic 8 ball
+      var magicAnswers = [
+        "Yes",
+        "No",
+        "Maybe",
+        "Ask again later",
+        "Definitely",
+        "I don't think so",
+      ];
+      var magicBtn = document.getElementById("magicBtn");
+      var magicOutput = document.getElementById("magicOutput");
+
+      magicBtn.onclick = function () {
+        var randomAnswer = Math.floor(Math.random() * magicAnswers.length);
+        magicOutput.textContent = "Magic 8 Ball says: " + magicAnswers[randomAnswer];
+      };
+
+      // Timer / stopwatch
+      var startTimer = document.getElementById("startTimer");
+      var stopTimer = document.getElementById("stopTimer");
+      var resetTimer = document.getElementById("resetTimer");
+      var timerOutput = document.getElementById("timerOutput");
+      var elapsedMs = 0;
+      var timerInterval = null;
+      var lastStart = 0;
+
+      function formatTime(ms) {
+        var totalTenths = Math.floor(ms / 100);
+        var minutes = Math.floor(totalTenths / 600);
+        var seconds = Math.floor((totalTenths % 600) / 10);
+        var tenths = totalTenths % 10;
+        var minuteText = String(minutes).padStart(2, "0");
+        var secondText = String(seconds).padStart(2, "0");
+        return minuteText + ":" + secondText + "." + tenths;
+      }
+
+      function updateTimerDisplay() {
+        timerOutput.textContent = formatTime(elapsedMs);
+      }
+
+      startTimer.onclick = function () {
+        if (timerInterval !== null) {
+          return;
+        }
+        lastStart = Date.now();
+        timerInterval = setInterval(function () {
+          var now = Date.now();
+          elapsedMs = elapsedMs + (now - lastStart);
+          lastStart = now;
+          updateTimerDisplay();
+        }, 100);
+      };
+
+      stopTimer.onclick = function () {
+        if (timerInterval === null) {
+          return;
+        }
+        clearInterval(timerInterval);
+        timerInterval = null;
+      };
+
+      resetTimer.onclick = function () {
+        if (timerInterval !== null) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+        elapsedMs = 0;
+        updateTimerDisplay();
+      };
+    </script>
+  </body>
 </html>
