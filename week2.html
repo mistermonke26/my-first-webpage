@@ -53,7 +53,15 @@
     <button id="jokeBtn">Tell me a joke</button>
     <button id="jokeClear">Clear</button>
     <div id="jokeOutput" class="output"></div>
-  </div>
+</div>
+
+<div class="card">
+    <h2>Click Counter</h2>
+    <p>How many times can you click?</p>
+    <button id="countBtn">Click me!</button>
+    <button id="countReset">Reset</button>
+    <div id="countOutput" class="output">Clicks: 0</div>
+</div>
 
   <script>
     // List of jokes
@@ -78,7 +86,26 @@
     jokeClear.onclick = function() {
       jokeOutput.textContent = '';
     };
-  </script>  
+
+    // Click counter
+var clicks = 0;
+var countBtn = document.getElementById('countBtn');
+var countOutput = document.getElementById('countOutput');
+var countReset = document.getElementById('countReset');
+
+// When count button is clicked, add 1
+countBtn.onclick = function() {
+  clicks = clicks + 1;
+  countOutput.textContent = 'Clicks: ' + clicks;
+};
+
+// When reset is clicked, go back to 0
+countReset.onclick = function() {
+  clicks = 0;
+  countOutput.textContent = 'Clicks: 0';
+};
+
+  </script>
 
 </body>
 </html>
