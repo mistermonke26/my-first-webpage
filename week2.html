@@ -53,7 +53,32 @@
     <button id="jokeBtn">Tell me a joke</button>
     <button id="jokeClear">Clear</button>
     <div id="jokeOutput" class="output"></div>
-  </div>  
+  </div>
+
+  <script>
+    // List of jokes
+    var jokes = [
+      "Why did the student eat his homework? Because the teacher said it was a piece of cake!",
+      "What do you call a boomerang that won't come back? A stick!",
+      "Why don't scientists trust atoms? Because they make up everything!"
+    ];
+  
+    // Get the button and output area
+    var jokeBtn = document.getElementById('jokeBtn');
+    var jokeOutput = document.getElementById('jokeOutput');
+    var jokeClear = document.getElementById('jokeClear');
+  
+    // When joke button is clicked, show a random joke
+    jokeBtn.onclick = function() {
+      var randomNumber = Math.floor(Math.random() * jokes.length);
+      jokeOutput.textContent = jokes[randomNumber];
+    };
+  
+    // When clear button is clicked, clear the joke
+    jokeClear.onclick = function() {
+      jokeOutput.textContent = '';
+    };
+  </script>  
 
 </body>
 </html>
