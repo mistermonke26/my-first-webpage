@@ -76,19 +76,63 @@
 <body>
   <main>
     <h1>Joke of the Day 😂</h1>
-    <p id="setup">Why do programmers prefer dark mode?</p>
+    <p id="setup">Loading joke...</p>
     <button id="revealBtn" type="button">Reveal punchline</button>
-    <p id="punchline" hidden>Because light attracts bugs! 🐛</p>
+    <p id="punchline" hidden>Loading punchline...</p>
   </main>
 
   <script>
+    const jokes = [
+      {
+        setup: "Why do programmers prefer dark mode?",
+        punchline: "Because light attracts bugs! 🐛"
+      },
+      {
+        setup: "Why did the JavaScript developer wear glasses?",
+        punchline: "Because they couldn't C# 👓"
+      },
+      {
+        setup: "How many programmers does it take to change a light bulb?",
+        punchline: "None. That's a hardware problem. 💡"
+      },
+      {
+        setup: "Why was the computer cold?",
+        punchline: "It forgot to close its Windows. 🪟"
+      }
+    ];
+
     const revealBtn = document.getElementById("revealBtn");
+    const setup = document.getElementById("setup");
     const punchline = document.getElementById("punchline");
+    let currentJokeIndex = -1;
+
+    function getNextJokeIndex() {
+      if (jokes.length <= 1) return 0;
+
+      let nextIndex = currentJokeIndex;
+      while (nextIndex === currentJokeIndex) {
+        nextIndex = Math.floor(Math.random() * jokes.length);
+      }
+      return nextIndex;
+    }
+
+    function loadNextJoke() {
+      currentJokeIndex = getNextJokeIndex();
+      setup.textContent = jokes[currentJokeIndex].setup;
+      punchline.textContent = jokes[currentJokeIndex].punchline;
+      punchline.hidden = true;
+      revealBtn.textContent = "Reveal punchline";
+    }
+
+    loadNextJoke();
 
     revealBtn.addEventListener("click", () => {
-      const isHidden = punchline.hidden;
-      punchline.hidden = !isHidden;
-      revealBtn.textContent = isHidden ? "Hide punchline" : "Reveal punchline";
+      if (punchline.hidden) {
+        punchline.hidden = false;
+        revealBtn.textContent = "Next joke";
+      } else {
+        loadNextJoke();
+      }
     });
   </script>
 </body>
