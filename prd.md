@@ -1,33 +1,47 @@
 ## My Portfolio Website - PRD
 
-**Problem/Goal:**
+**Overview:**
 I want my portfolio to showcase my coding projects
+Website name: Jasmin's Coding Portfolio
 
 **Site Theme:**
-Style: light grunge retrofuturistic digital arcade glitch pixel art
+Style: retrofuturistic digital arcade grunge glitch pixel art
 
-**Pages I Will Create:**
-- [ ] index.html (Home) - welcome, brief intro, "Explore" button, sample work (one project of best work)
-- [ ] about.html (About Me) - about me Jasmin, aspiring designer with some coding experience and learning to create bigger projects with the help of Caution Tape Wiki's AI Coding course
-- [ ] projects.html (Project Showcase) - thumbnails and links to projects, very top section of Latest Work (one project of latest work)
-Header: mini logo (pixel art style cursor), menu
-Footer: Jasmin's Coding Portfolio, icon logos that link to email and social media
+**Pages:**
+- index.html (Home) - welcome, brief intro, "Explore" button, sample work (one project of best work)
+- about.html (About Me) - about me Jasmin, aspiring designer with some coding experience and learning to create bigger projects with the help of Caution Tape Wiki's AI Coding course, contact (email and socials)
+- projects.html (Project Showcase) - thumbnails and links to projects, very top section of Latest Work (one project of latest work)
+- Header: mini logo (pixel art style cursor), menu
+- Footer: "Jasmin's Coding Portfolio", icon logos that link to email and social media
 
-**Features (checkboxes for what I will build):**
-- [ ] Shared header with site title/logo on EVERY page
-- [ ] Navigation menu linking all pages
-- [ ] Active page highlighting (current page looks different)
-- [ ] Unique `<title>` for each page
-- [ ] Shared footer on EVERY page
-- [ ] At least 2 sections per page using `<section>`
-- [ ] Proper file structure (all files in one folder)
-- [ ] External CSS file (style.css)
+Note: use placeholders for example work (image frames, descriptions, and links)
 
-**Success Check (how I know I'm done):**
-- [ ] All pages link correctly (no broken links)
-- [ ] Header is identical on every page
-- [ ] Footer is identical on every page
-- [ ] Navigation highlights current page
-- [ ] Browser tab shows unique title per page
-- [ ] I can explain the DOM Tree of my pages
-- [ ] I can explain every HTML element I used
+**Features:**
+- Theme toggle button that switches light/dark/high-contrast
+- Theme choice saves in localStorage (persists on refresh)
+- Navigation bar using Flexbox
+- At least one section using CSS Grid (cards/gallery)
+- Responsive design with at least 2 media query breakpoints
+- Smooth color transitions when theme changes
+- Button text updates when theme changes
+
+**Success Check:**
+- Theme toggle button works (click changes colors)
+- Theme persists after page refresh
+- Site looks good on mobile (resize browser to test)
+- Site looks good on desktop
+- Colors transition smoothly
+
+
+Elements Checklist:
+
+- Button text updates with current theme
+- Mobile breakpoint at 480px
+- Desktop breakpoint at 1024px
+- Hover effects on buttons and cards
+- Grid uses auto-fit with minmax()
+
+- Three themes (light, dark, high-contrast)
+- System preference detection (prefers-color-scheme)
+- Animated theme toggle icon
+- Multiple grid layouts on different sections (multiple sections on one page)
